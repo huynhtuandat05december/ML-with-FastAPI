@@ -9,7 +9,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Request to the Render server
-url = ""
+url = "https://ml-with-fastapi.onrender.com/infer"
 cat_features = [
     "workclass",
     "education",
