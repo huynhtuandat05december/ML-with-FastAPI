@@ -1,0 +1,37 @@
+[2023-12-07 17:37:18,517][module.train_model][INFO] - Hydra config: {'main': {'cat_features': ['workclass', 'education', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'native-country'], 'num_features': ['age', 'fnlwgt', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-week'], 'label': 'salary', 'model_path': 'model/lr_model.pkl', 'slice_output_path': 'slice_output.txt', 'data_path': 'data/census_clean.csv', 'test_size': 0.2}}
+[2023-12-07 17:37:18,517][module.train_model][INFO] - Reading training data...
+[2023-12-07 17:37:18,580][module.train_model][INFO] -                 age         fnlgt  education-num  capital-gain  capital-loss  hours-per-week
+count  30139.000000  3.013900e+04   30139.000000  30139.000000  30139.000000    30139.000000
+mean      38.441720  1.897950e+05      10.122532   1092.841202     88.439928       40.934703
+std       13.131426  1.056586e+05       2.548738   7409.110596    404.445239       11.978753
+min       17.000000  1.376900e+04       1.000000      0.000000      0.000000        1.000000
+25%       28.000000  1.176275e+05       9.000000      0.000000      0.000000       40.000000
+50%       37.000000  1.784170e+05      10.000000      0.000000      0.000000       40.000000
+75%       47.000000  2.376045e+05      13.000000      0.000000      0.000000       45.000000
+max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000       99.000000
+[2023-12-07 17:37:18,591][module.train_model][INFO] - Splitting data into train and test sets...
+[2023-12-07 17:37:18,598][module.train_model][INFO] - Processing data...
+[2023-12-07 17:37:18,716][module.train_model][INFO] - Training model...
+[2023-12-07 17:37:19,124][module.train_model][INFO] - LogisticRegression(max_iter=1000, random_state=8071)
+[2023-12-07 17:37:19,125][module.train_model][INFO] - Saving model...
+[2023-12-07 17:37:19,126][module.train_model][INFO] - Model saved.
+[2023-12-07 17:37:19,126][module.train_model][INFO] - Inference model...
+[2023-12-07 17:37:19,137][module.train_model][INFO] - Calculating model metrics...
+[2023-12-07 17:37:19,148][module.train_model][INFO] - >>>Precision: 0.7636363636363637
+[2023-12-07 17:37:19,148][module.train_model][INFO] - >>>Recall: 0.267515923566879
+[2023-12-07 17:37:19,148][module.train_model][INFO] - >>>Fbeta: 0.39622641509433965
+[2023-12-07 17:37:19,148][module.train_model][INFO] - Calculating model metrics on slices data...
+[2023-12-07 17:37:20,242][module.train_model][INFO] - >>>Metrics with slices data:            feature  precision    recall        f1          category
+0        workclass   0.771831  0.271556  0.401760           Private
+1        workclass   0.960000  0.380952  0.545455      Self-emp-inc
+2        workclass   0.650000  0.194030  0.298851         Local-gov
+3        workclass   0.709677  0.261905  0.382609  Self-emp-not-inc
+4        workclass   0.764706  0.206349  0.325000         State-gov
+..             ...        ...       ...       ...               ...
+90  native-country   1.000000  0.000000  0.000000            Taiwan
+91  native-country   1.000000  1.000000  1.000000          Honduras
+92  native-country   1.000000  1.000000  1.000000              Peru
+93  native-country   1.000000  1.000000  1.000000          Thailand
+94  native-country   1.000000  1.000000  1.000000   Trinadad&Tobago
+
+[95 rows x 5 columns]
